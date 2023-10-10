@@ -7,7 +7,7 @@ function App() {
   const [peso, setPeso] = useState(0)
   const [imc, setImc] = useState(0) 
   let classificacaoIMC = "";
-  
+
   const calculaIMC = () => {
     if (altura !== 0 && isNaN(altura) ==false && peso !== 0 && isNaN(peso) ==false) {
       setImc((peso/(altura*altura)).toFixed(1));
@@ -39,6 +39,14 @@ function App() {
       document.getElementById("classObeso").classList.add("IMCdaPessoa")
     }
 
+    function verificaInputs() {
+      if (altura !== 0 && isNaN(altura) ==false && peso !== 0 && isNaN(peso) ==false) {
+        classificadorIMC()
+      } else {
+        alert("Insira os valores de altura e peso");
+      }
+    }
+
     console.log(classificacaoIMC)
   }
 
@@ -57,7 +65,7 @@ function App() {
       <div className='botao-e-resultado'>
       <button className="calcularButton" onClick={() => {
         calculaIMC();
-        classificadorIMC();
+        verificaInputs();
       }}>Calcular IMC</button>
         {imc ? <h2>SEU IMC É <span className='seuIMC'>{imc}</span></h2> : <h2>SEU IMC É <span className='transparente'>00.0</span></h2>}
       </div>
