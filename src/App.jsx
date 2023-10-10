@@ -42,12 +42,6 @@ function App() {
     console.log(classificacaoIMC)
   }
 
-  // Cria um efeito que depende do valor de imc
-  useEffect(() => {
-    // Chama a função classificadorIMC sempre que imc mudar
-    classificadorIMC();
-  }); // Passa imc como uma dependência do efeito
-
   return (
     <div className='container'>
       <h1>Calculadora de IMC</h1>
