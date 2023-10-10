@@ -38,16 +38,15 @@ function App() {
       document.getElementById("classSobrepeso").classList.remove("IMCdaPessoa")
       document.getElementById("classObeso").classList.add("IMCdaPessoa")
     }
-
-    function verificaInputs() {
-      if (altura !== 0 && isNaN(altura) ==false && peso !== 0 && isNaN(peso) ==false) {
-        classificadorIMC()
-      } else {
-        alert("Insira os valores de altura e peso");
-      }
-    }
-
     console.log(classificacaoIMC)
+  }
+  
+  function verificaInputs() {
+    if (altura !== 0 && isNaN(altura) ==false && peso !== 0 && isNaN(peso) ==false) {
+      classificadorIMC()
+    } else {
+      alert("Insira os valores de altura e peso");
+    }
   }
 
   return (
