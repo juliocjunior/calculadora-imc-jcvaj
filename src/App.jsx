@@ -6,33 +6,38 @@ function App() {
   const [altura, setAltura] = useState(0)
   const [peso, setPeso] = useState(0)
   const [imc, setImc] = useState(0) 
+  const [imc2, setImc2] = useState(0) 
   let classificacaoIMC = "";
 
-  const calculaIMC = () => {
-    if (altura !== 0 && isNaN(altura) ==false && peso !== 0 && isNaN(peso) ==false) {
-      setImc((peso/(altura*altura)).toFixed(1));
-    } else {
-      alert("Insira os valores de altura e peso");
-    }
+  function calculaIMC() {
+    setImc((peso/(altura*altura)).toFixed(1));
   }
 
+  function calculaIMC2() {
+    setImc2((peso/(altura*altura)).toFixed(1));
+  }
+  
+  useEffect(() => {
+    calculaIMC2();
+  });
+
   function classificadorIMC() {
-    if (imc < 18.5) {
+    if (imc2 < 18.5) {
       document.getElementById("classAbaixo").classList.add("IMCdaPessoa")
       document.getElementById("classNormal").classList.remove("IMCdaPessoa")
       document.getElementById("classSobrepeso").classList.remove("IMCdaPessoa")
       document.getElementById("classObeso").classList.remove("IMCdaPessoa")
-    } else if (imc >= 18.5 && imc < 25) {
+    } else if (imc2 >= 18.5 && imc2 < 25) {
       document.getElementById("classAbaixo").classList.remove("IMCdaPessoa")
       document.getElementById("classNormal").classList.add("IMCdaPessoa")
       document.getElementById("classSobrepeso").classList.remove("IMCdaPessoa")
       document.getElementById("classObeso").classList.remove("IMCdaPessoa")
-    } else if (imc >= 25 && imc < 30) {
+    } else if (imc2 >= 25 && imc2 < 30) {
       document.getElementById("classAbaixo").classList.remove("IMCdaPessoa")
       document.getElementById("classNormal").classList.remove("IMCdaPessoa")
       document.getElementById("classSobrepeso").classList.add("IMCdaPessoa")
       document.getElementById("classObeso").classList.remove("IMCdaPessoa")
-    } else if (imc >= 30) {
+    } else if (imc2 >= 30) {
       document.getElementById("classAbaixo").classList.remove("IMCdaPessoa")
       document.getElementById("classNormal").classList.remove("IMCdaPessoa")
       document.getElementById("classSobrepeso").classList.remove("IMCdaPessoa")
@@ -43,12 +48,13 @@ function App() {
   
   function verificaInputs() {
     if (altura !== 0 && isNaN(altura) ==false && peso !== 0 && isNaN(peso) ==false) {
-      classificadorIMC()
+      calculaIMC();
+      classificadorIMC();
     } else {
       alert("Insira os valores de altura e peso");
     }
   }
-
+  
   return (
     <div className='container'>
       <h1>Calculadora de IMC</h1>
@@ -63,10 +69,9 @@ function App() {
       </form>
       <div className='botao-e-resultado'>
       <button className="calcularButton" onClick={() => {
-        calculaIMC();
         verificaInputs();
       }}>Calcular IMC</button>
-        {imc ? <h2>SEU IMC É <span className='seuIMC'>{imc}</span></h2> : <h2>SEU IMC É <span className='transparente'>00.0</span></h2>}
+        {imc ? <h2>SEU IMC É <span id="seuIMC" className='seuIMC'>{imc}</span></h2> : <h2>SEU IMC É <span className='transparente'>00.0</span></h2>}
       </div>
       <thead>
           <tr className='linha'>
@@ -78,12 +83,11 @@ function App() {
               </th>
           </tr>
       </thead>
-
       <tr>
           <td id="classAbaixo">
               Abaixo do peso
           </td>
-          <td id="classAbaixo">
+          <td>
               menor que 18.5
           </td>
       </tr>
@@ -91,7 +95,7 @@ function App() {
           <td id="classNormal">
               Normal
           </td>
-          <td id="classNormal">
+          <td>
               Entre 18.5 e 24.9
           </td>
       </tr>
@@ -99,7 +103,7 @@ function App() {
           <td id="classSobrepeso">
               Sobrepeso
           </td>
-          <td id="classSobrepeso">
+          <td>
               Entre 24.9 e 30
           </td>
       </tr>
@@ -107,7 +111,7 @@ function App() {
           <td id="classObeso">
               Obeso
           </td>
-          <td id="classObeso">
+          <td>
               Maior que 30
           </td>
       </tr>
