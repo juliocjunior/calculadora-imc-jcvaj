@@ -1,65 +1,66 @@
 .dica {
-    color: rgba(0, 0, 0, 0.54);
-    font-size: 15px;
+  color: rgba(0, 0, 0, 0.54);
+  font-size: 15px;
 }
 
 .nomeDosInputs {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 input {
-    border: 2px solid black;
-    border-radius: 5px;
-    padding: 3px;
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 3px;
 }
 
 .botao-e-resultado {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .calcularButton {
-    margin: 20px 20px 20px 0;
-    padding: 5px;
-    border-radius: 5px;
-    border: 2px solid black;
+  margin: 20px 20px 20px 0;
+  padding: 5px;
+  border-radius: 5px;
+  border: 2px solid black;
 }
 
 .calcularButton:hover {
-    cursor: pointer;
-    text-decoration: underline;
+  cursor: pointer;
+  text-decoration: underline;
 }
 
-.seuIMC, .transparente {
-    border: 2px solid black;
-    padding: 5px;
-    border-radius: 5px;
-    background-color: white;
+.seuIMC,
+.transparente {
+  border: 2px solid black;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: white;
 }
 
 .transparente {
-    color: rgba(255, 255, 255, 0);
+  color: rgba(255, 255, 255, 0);
 }
 
 th {
-    background-color: rgb(2, 2, 2);
-    color: white;
-    padding: 5px;
+  background-color: rgb(2, 2, 2);
+  color: white;
+  padding: 5px;
 }
 
 td {
-    border: 2px solid black;
-    padding: 5px;
+  border: 2px solid black;
+  padding: 5px;
 }
 
 tr:nth-child(even) {
-    background-color: rgb(255, 255, 255);
+  background-color: rgb(255, 255, 255);
 }
 
 tr:nth-child(odd) {
-    background-color: rgb(255, 255, 255);
+  background-color: rgb(255, 255, 255);
 }
 
 .IMCdaPessoa {
-    background-color: rgb(255, 255, 119);
+  background-color: rgb(255, 255, 119);
 }

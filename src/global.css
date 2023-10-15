@@ -1,15 +1,15 @@
 * {
-    font-family: Roboto, sans-serif;
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-weight: bold;
+  font-family: Roboto, sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-weight: bold;
 }
 
 body {
-    height: 95vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(155, 154, 154);
+  height: 95vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(155, 154, 154);
 }
